@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pinky Clock!!</title>
+ 	<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap" rel="stylesheet">
+</head>
+<body >
+ 
+	<div class="clock">
+		<div class="sechand"></div>
+		<div class="minhand"></div>
+		<div class="hourhand"></div>
+	</div>
+
+  
+  <script>
+	  let sechand=document.querySelector(`.sechand`);
+	  let minhand=document.querySelector(`.minhand`);
+	  let hourhand=document.querySelector(`.hourhand`);
+
+	  function getTime(){
+		  let now= new Date();
+		    let seconds=now.getSeconds();
+		    let secdegree=seconds*6+90
+		    let minutes=now.getMinutes();
+		    let mindegree=minutes*6+90
+		    let hours=now.getHours();
+			let hourdegree=hours*30+90
+		  sechand.style.transform=`rotate(${secdegree}deg)`;
+		  minhand.style.transform=`rotate(${mindegree}deg)`;
+		  hourhand.style.transform=`rotate(${hourdegree}deg)`;
+		
+		  
+	  }
+	  setInterval(getTime,1000);
+		  
+  </script>
+
+</body>
+</html>

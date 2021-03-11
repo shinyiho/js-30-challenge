@@ -1,0 +1,64 @@
+body, html {
+
+  min-height: 100vh;
+  margin: 0;
+  font-size: 1.5rem;
+  font-family:'sans-serif', Lacquer ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:
+  radial-gradient(circle at 100% 150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, #42D2BB 10%, #3BC1AC 11%, #3BC1AC 23%, #42D2BB 24%, #42D2BB 30%, #3BC1AC 31%, #3BC1AC 43%, #42D2BB 44%, #42D2BB 50%, #3BC1AC 51%, #3BC1AC 63%, #42D2BB 64%, #42D2BB 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+ 
+}
+
+body{
+  background-color: rgb(249, 239, 201);
+
+}
+.container{
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 300px;
+  background-color: antiquewhite;
+  border-radius: 5px;
+  box-shadow: 6px 9px 12px 7px rgba(255,213,74,0.31);
+}
+p{
+  margin: 20px;
+  text-shadow: 3px 3px 0 #F3C010;
+  margin-bottom: 1px;
+
+}
+textarea {
+  height: 5rem;
+  width: 10rem;
+  border: 0;
+}
+button{
+  border: 0;
+  width: 4.5rem;
+  height: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  
+  
+}
+select{
+  margin-top: 5px;
+  border: 0;
+  width: 10rem;
+
+}
+label{
+  font-size: 12px;
+}
+input{
+  width: 70%;
+}

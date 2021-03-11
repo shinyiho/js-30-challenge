@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hey!Siri!</title>
+ 	<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap" rel="stylesheet">
+</head>
+<body >
+ 
+	<div class="container">
+		               
+	</div>
+
+   
+  <script>
+	//get voice
+	window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+	
+	const recognition = new SpeechRecognition();
+	recognition.interimResults = true;
+//   recognition.lang = 'en-US';
+   console.log(recognition);
+	//create p element
+	let p= document.createElement("p");
+	let word = document.querySelector(".container");
+	word.appendChild(p);
+	//when to perform function
+	recognition.addEventListener("result",e=>{
+		const transcript = Array.from(e.results)
+		.map(x=>x[0])
+		.map(y=>y.transcript)
+		.join("");
+		p.textContent=transcript;
+
+		// console.log("transcript",transcript);
+		// console.log("e",e);
+		// console.log("e.result",e.results);
+		// console.log("e.results[0]",e.results[0]);
+
+		// console.log("e.results[0].isFinal",e.results[0].isFinal);
+		// console.log("e.results[0][2]",e.results[0][2]);
+		// console.log("e.results.0.isFinal",e.results.SpeechRecognitionResult.isFinal);
+		if (e.results[0].isFinal){
+			p = document.createElement('p');
+			word.appendChild(p);
+}
+	})
+	recognition.start();
+	recognition.addEventListener('end', recognition.start);
+
+
+
+  </script>
+
+</body>
+</html>
+
+
+

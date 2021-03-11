@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mail Box</title>
+ 	<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap" rel="stylesheet">
+</head>
+<body >
+ 
+	<div class="container">
+		<div class="item">
+			<input type="checkbox"></input>
+			<span>This is an inbox layout</span>
+		</div>
+		<div class="item">
+			<input type="checkbox"></input>
+			<span>weekly JS</span>
+		</div>
+		<div class="item">
+			<input type="checkbox"></input>
+			<span>Andriel</span>
+		</div>
+		<div class="item">
+			<input type="checkbox"></input>
+			<span>New York Times</span>
+		</div>
+		<div class="item">
+			<input type="checkbox"></input>
+			<span>Vibert Thio</span>
+		</div>
+		<div class="item">
+			<input type="checkbox"></input>
+			<span>Let's do it from sketch</span>
+		</div>
+		<div class="item">
+			<input type="checkbox"></input>
+			<span>WES BOS</span>
+		</div>
+		
+		
+	</div>
+
+  
+  <script>
+	const checkboxs=document.querySelectorAll("input");
+	let lastchecked;
+	
+	function layout(e) {
+		
+		let inbetween=false;
+		
+		
+		if(e.shiftKey&&this.checked){
+		
+		checkboxs.forEach(checkbox=>{
+			if (checkbox===this||checkbox===lastchecked){
+				inbetween=!inbetween;
+			}
+			if(inbetween===true){
+				checkbox.checked=true;
+				console.log(checkbox);
+			}
+			
+		});
+
+		}
+
+		lastchecked=this;
+		
+	} 
+		checkboxs.forEach(x=>x.addEventListener("click", layout))
+		console.log(checkboxs);
+		checkboxs.forEach(x=>console.log(x));
+  </script>
+
+</body>
+</html>
+
+
+

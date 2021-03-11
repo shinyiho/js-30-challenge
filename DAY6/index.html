@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Type</title>
+ 	<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap" rel="stylesheet">
+</head>
+<body >
+	<form class="search-form">
+	<input type="text" class="keyin"placeholder="City or State">
+	<ul class="list">
+		<li>Filter For A City</li>
+		<li>Or A State</li>
+	</ul>
+	</form>
+		
+  
+  <script>
+	  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+	  var wholedata=[];
+	  fetch(endpoint)
+	  .then(x=>x.json())
+	  .then(y=>wholedata.push(...y));
+	  console.log(wholedata);
+	
+	//   var wholedata2=[];
+	//   var newarr=fetch(endpoint)
+	//   .then(x=>x.json())
+	//   .then(x=>x.forEach(element => wholedata2.push(element)));//.forEach(element =>wholedata.push(element));
+	//   console.log(wholedata2); //other solution for getting wholedata
+	
+
+	  var keyin = document.querySelector(".keyin")
+	  var list = document.querySelector(".list")
+	
+	
+	  keyin.addEventListener("keyup",displayitems);
+
+	  function matchArray(city, wholedata){
+		var regex=new RegExp(city,"gi");
+		return wholedata.filter(x=>x.city.match(regex)||x.city.match(regex));//find corresponding cities and state and return subset
+	  }
+	  function numberWithCommas(x) {
+  		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	  }
+	  function displayitems(){
+		var arr=matchArray(this.value,wholedata);
+		var html=arr.map(y=>{
+			const regex = new RegExp(this.value, 'gi');
+			const cityName = y.city.replace(regex, `<span class="hl">${this.value}</span>`);
+			const stateName = y.state.replace(regex, `<span class="hl">${this.value}</span>`);
+		
+		return `<li>${cityName},${stateName}   <span class="population">${numberWithCommas(y.population)}</span></li>`
+		
+		 }).join(" ");
+	
+		list.innerHTML=html;
+	  }
+
+
+
+
+
+  </script>
+
+</body>
+</html>

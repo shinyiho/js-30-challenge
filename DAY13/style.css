@@ -1,0 +1,44 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background-color: rgb(247, 228, 199);
+
+
+}
+
+.site-wrap {
+  max-width: 700px;
+  margin: 100px auto;
+  background: white;
+  padding: 40px;
+  text-align: justify;
+}
+.align-left {
+  float: left;
+  margin-right: 20px;
+  opacity: 0;
+  transform: translate(-30%);
+}
+
+.align-right {
+  float: right;
+  margin-left: 20px;
+  opacity: 0;
+  transform: translate(30%);
+}
+
+
+
+ .active{
+  opacity: 1;
+  transform: translate(0%);
+
+}
+img{
+  height: 400px;
+  transition: 0.2s;
+  
+}

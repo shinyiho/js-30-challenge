@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Voiceinator</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap"
+		rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="container">
+		<p>Voiceinator</p>
+		<select name="voice"></select>
+		<div>
+		<label for="rate">Rate</label>
+		<input type="range" name="rate" min="0" max="3" value="1" step="0.1">
+		</div>
+		<div>
+		<label for="pitch">Pitch</label>
+		<input type="range" name="pitch" min="0" max="3" value="1" step="0.1">
+		</div>
+		<textarea class="textarea"
+			name="text">Let's do it!there is something wrong here but i can't figure out now let me fix it! i have to write different context to know where it have been proccess</textarea><br>
+		<button id="speak">Play!</button>
+		<button id="stop">Stop!</button>
+	</div>
+
+
+	<script>
+		const msg = new SpeechSynthesisUtterance();
+		let voices = [];
+		const voicesDropdown = document.querySelector('[name="voice"]');
+		const options = document.querySelectorAll('[type="range"], [name="text"]');
+		const speakButton = document.querySelector('#speak');
+		const stopButton = document.querySelector('#stop');
+
+
+		msg.text = document.querySelector('.textarea').value
+		console.log(msg);
+		
+		speechSynthesis.addEventListener("voiceschanged", populatevoices);
+		function populatevoices() {
+			console.log("voiceschanged",Date.now());
+			voices = this.getVoices();
+			
+			console.log(voices);
+			let voiceoption = voices
+				.map(voice => `<option>${voice.name} ${voice.lang}</option>`)
+				.join("");
+			voicesDropdown.innerHTML = voiceoption
+			// console.log(voices);
+		}
+
+		voicesDropdown.addEventListener("change", updateVoices);
+		function updateVoices() {
+			// console.log(voices);
+			// console.log(this.value);
+			msg.voice = voices.find(voice => `${voice.name} ${voice.lang}` === this.value);
+			// console.log(msg.voice);
+			toggle();
+		}
+
+
+
+		function toggle(status = true) {
+			speechSynthesis.cancel();
+			if (status) {
+				speechSynthesis.speak(msg);
+				
+			}
+		}
+		function updateSetting() {
+			msg[this.name] = this.value;
+			toggle();
+		}
+		speakButton.addEventListener("click", toggle);
+		stopButton.addEventListener("click", () => toggle(false));
+		options.forEach(x => x.addEventListener("change", updateSetting));
+		// console.log(options);
+
+		console.log("the end",Date.now());
+
+
+
+
+
+	</script>
+
+</body>
+
+</html>

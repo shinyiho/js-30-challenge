@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>BUCKET LIST!!</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap"
+		rel="stylesheet">
+</head>
+
+<body>
+	<div class="box">
+		<h1>BUCKET LIST</h1>
+		<ul class="itemList">
+			<li>loading items....</li>
+		</ul>
+
+		<form class="add-items">
+			<input type="text" placeholder="Item name" required>
+			<input class="submit" type="submit" value="+ Add item">
+		</form>
+
+	</div>
+	<script>
+		let items = JSON.parse(localStorage.getItem('items')) || [];
+		let submit = document.querySelector(".add-items");
+		let itemList = document.querySelector(".itemList");
+		submit.addEventListener("submit", addItem);
+		itemList.addEventListener("click", toggleStatus);
+
+
+		function addItem(e) {
+			e.preventDefault();
+			let text = this.querySelector("[type=text]").value;
+			let item = {
+				text,
+				checked: true
+			}
+			items.push(item);
+			genList(items, itemList);
+			localStorage.setItem('items', JSON.stringify(items));
+			this.reset();
+		}
+		function genList(items = [], itemList) {
+			itemList.innerHTML = items.map((item, i) => {
+				return `      
+				<li>
+				<input type="checkbox" id="${i}" ${item.checked ? "checked" : ""}>
+				<label for="${i}">${item.text}</label>
+				</li>
+				`;
+			}).join(" ");
+			console.log(itemList.innerHTML);
+		}
+		function toggleStatus(e) {
+			if (!e.target.matches("input")) return;
+			let index = e.target.id;
+			items[index].checked=!items[index].checked;
+			localStorage.setItem('items', JSON.stringify(items));
+		}
+
+
+		genList(items, itemList);
+
+	</script>
+
+
+
+
+</body>
+
+</html>

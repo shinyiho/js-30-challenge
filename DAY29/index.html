@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Countdown Timer!!</title>
+ 	<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap" rel="stylesheet">
+</head>
+<body >
+	<div class="timer">
+		<div class="timer__controls">
+		  <button data-time="20" class="timerButton">20 Secs</button>
+		  <button data-time="300" class="timerButton">Work 5</button>
+		  <button data-time="900" class="timerButton">Quick 15</button>
+		  <button data-time="1200" class="timerButton">Snack 20</button>
+		  <button data-time="3600" class="timerButton">Lunch Break</button>
+		  <form name="customForm" id="custom">
+			<input type="text" name="minutes" placeholder="Enter Minutes">
+		  </form>
+		</div>
+		<div class="display">
+		  <h1 class="timeLeft"></h1>
+		  <p class="comeBack"></p>
+		</div>
+	  </div>
+	
+
+  
+  <script>
+	  let countdown;
+	  let timeleft = document.querySelector(".timeLeft");
+	  let comeBack = document.querySelector(".comeBack");
+	  let sec;
+	  let button = document.querySelectorAll("[data-time]");
+	   function timer(sec){
+		
+		   let now = Date.now();
+		   console.log(now);
+		   let then = now + sec*1000;
+
+		   displayTimeLeft(sec);
+		   displayEndTime(then);
+		   clearInterval(countdown);
+		   countdown = setInterval(()=>{
+			
+				let secLeft = Math.round((then-Date.now())/1000);
+				if(secLeft<0){
+					clearInterval(countdown);
+					return;
+				}
+
+			displayTimeLeft(secLeft);
+
+			},1000);
+	   }
+
+	   function displayTimeLeft(secLeft){
+		   let min = Math.floor(secLeft/60);
+		   let sec = secLeft%60;
+		   
+		   timeleft.textContent = `${min}:${sec<10? 0:""}${sec}`;
+		   }
+
+		function displayEndTime(then){
+			const end = new Date(then);
+			// let seconds=end.getSeconds();
+			let minutes=end.getMinutes();
+			let hour = end.getHours();
+			console.log(end);
+			comeBack.textContent = `Be Back At ${hour>12? hour-12:hour}:${minutes<10? 0:""}${minutes}`;
+		}
+
+
+		button.forEach(b=>b.addEventListener("click", startTimer))
+
+		function startTimer(){
+			let seconds= parseInt(this.dataset.time);
+			timer(seconds);
+		}
+
+		document.customForm.addEventListener('submit', function(e) {
+		e.preventDefault();
+		const mins = this.minutes.value;
+		console.log(document.customForm);
+		console.log(this.minutes);
+		console.log(mins);
+		timer(mins * 60);
+		this.reset();
+		});
+
+
+  </script>
+
+</body>
+</html>

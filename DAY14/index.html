@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+ 	
+</head>
+<body >
+
+  <script>
+	  //numbers
+	//   let a=100;
+	//   let b=a;
+	//   a=50;
+	  //string
+	//   let a="shinyi";
+	//   let b=a;
+	//   a="vibert"
+	  //array
+	//   let a=["shinyi","vibert"]
+	//   let b=a
+	//   a[1]="anna"
+	//   let arr1=[].concat(a);
+	//   arr1[1]="anna"
+	//   console.log(arr1);
+	//   console.log(a);
+	//   let arr2=[...a];
+	//   arr2[1]="anna"
+	//   console.log(arr2);
+	//   console.log(a);
+	//   let arr3=a.slice();
+	//   arr3[1]="anna"
+	//   console.log(arr3);
+	//   console.log(a);
+	//   let arr4=Array.from(a);
+	//   arr4[1]="anna"
+	//   console.log(arr4);
+	//   console.log(a);
+	   //object
+	   const person = {
+      	name: 'Shin Ho',
+      	age: 26
+   		 };
+			
+		let person1 = Object.assign({},person);
+		console.log(person1);
+		person1.age=27;
+		console.log(person1);
+		console.log(person);
+		let person2 = JSON.parse(JSON.stringify(person1));
+		person2.age=18;
+		console.log(person2);
+		console.log(person1);
+		console.log(person);
+
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>

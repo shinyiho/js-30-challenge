@@ -1,0 +1,77 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Lacquer', sans-serif;
+  display: flex;
+  color: rgb(240, 84, 152);
+  background-color: rgb(255, 226, 239);
+  font-size: 1em;
+}
+
+h1{
+  text-align: center;
+ 
+}
+input{
+  text-align: center;
+}
+
+
+.box{
+  width: 300px;
+  margin: auto ;
+  padding: 10px;
+  background-color: rgba(255, 192, 203,0.5);
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.add-items{
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+.add-items input {
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+li{
+  list-style: none;
+  border-bottom: 5px solid rgba(250, 247, 247, 0.2);
+  padding: 10px 30px;
+  
+}
+
+ul{
+  padding: 0px 0px 0px 10px;
+  font-weight: 50;
+  font-size: 24px;
+
+}
+
+
+.itemList input {
+  display: none;
+}
+
+.itemList input + label:before {
+  content: '\01F437';
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.itemList input:checked + label:before {
+  content: "\1F48B";
+}
+
+label {
+  /* flex: 1; */
+  cursor: pointer;
+}
+
+/* "\01F604", "\01F620", "Happy", "Mad" */

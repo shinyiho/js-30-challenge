@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Text shadow</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap"
+		rel="stylesheet">
+</head>
+
+<body>
+
+
+	<div class="text">Shinyi</div>
+
+
+	<script>
+		let target = document.querySelector(".text");
+		let range = 500;
+		
+		window.addEventListener("mousemove", info);
+	
+
+
+		function info(e) {
+			let x=Math.round(range*(e.offsetX/window.innerWidth)-range/2);
+			let y=Math.round(range*(e.offsetY/window.innerHeight)-range/2);
+			console.log("target",e.target);
+			console.log("this",this);
+			console.log("y",y);
+			console.log("x",x);
+			target.style.textShadow=
+			`${x}px ${y}px 5px #F25CA2,
+			 ${x}px ${-y}px 5px #0433BF,
+			 ${-x}px ${y}px 5px #021859,
+			 ${-x}px ${-y}px 5px #0B9ED9
+			
+			
+			`
+		
+
+		}
+
+		// ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7),
+
+
+
+	</script>
+
+</body>
+
+</html>

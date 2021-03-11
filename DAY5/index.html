@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PIC Gallery</title>
+ 	<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive|Gloria+Hallelujah|Lacquer&display=swap" rel="stylesheet">
+</head>
+<body >
+ 
+		<div class="panels" >
+			<div class="panel panel1">
+				<p>Hey</p>
+				<p>Let's</p>
+				<p>Dance</p>
+			</div>	
+			<div class="panel panel2">
+				<p>QUE</p>
+				<p>SERA</p>
+				<p>SERA</p>
+			</div>	
+			<div class="panel panel3">
+				<p>LIVE</p>
+				<p>IN THE</p>
+				<p>MOMENT</p>
+			</div>	
+			<div class="panel panel4">
+				<p>DARE</p>
+				<p>TO</p>
+				<p>TRY</p>
+			</div>	
+			<div class="panel panel5">
+				<p>KIND</p>
+				<p>AND</p>
+				<p>FRIENDLY</p>
+			</div>	
+
+		</div>
+  
+  <script>
+	  function toggleopen(){
+		  this.classList.toggle("open");
+	  }
+
+
+	  function toggletext(e){
+		  console.log(e);
+		if (e.propertyName.includes('flex')) {
+        this.classList.toggle('text');
+      }
+		
+	  }
+
+	 let target=document.querySelectorAll(".panel")
+	 target.forEach(element => element.addEventListener("click",toggleopen));
+	 target.forEach(element => element.addEventListener("transitionend",toggletext));
+
+	 
+  </script>
+
+</body>
+</html>

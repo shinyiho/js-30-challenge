@@ -1,0 +1,48 @@
+body{
+
+    background:
+    linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
+    linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
+    linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
+    linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+
+
+}
+li{
+    list-style: none;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menu{
+ 
+    display: flex;
+    /* align-items: stretch; */
+    justify-content: center;
+ 
+}
+.wrapper{
+    /* max-width: 800px; */
+    position: relative;
+    font-size: 20px;
+  
+  
+}
+
+.highlight{
+    transition: all 0.2s;
+    border-bottom: 2px solid white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: -1;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}

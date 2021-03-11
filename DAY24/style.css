@@ -1,0 +1,75 @@
+body{
+  
+  background-color: gray;
+  margin: 0;
+  padding: 0;
+ 
+}
+header {
+  text-align: center;
+  font-size: 4rem;
+  height: 40vh;
+  background: url(https://images.unsplash.com/photo-1583532452513-a02186582ccd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max) center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#main{
+  background-color: black;
+  font-size: 2rem;
+
+}
+ul{
+  margin: 0;
+}
+.site-wrap{
+
+  margin: 3rem auto;
+  text-align: center;
+  max-width: 900px;
+  padding: 0.5px;
+  box-shadow: black;
+  background-color: white;
+
+}
+.active{
+  width: 100%;
+  position: fixed;
+  transition: 1s;
+  top: 0;
+  left: 0;
+
+}
+.logo{
+  max-width: 0;
+  overflow: hidden;
+  background-color: white;
+  transition: 2s;
+}
+
+.logo a{
+  color: black;
+}
+nav.active .logo{
+  max-width: 500px;
+
+  
+}
+a{
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  display: inline-block;
+}
+
+ul{
+ 
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  flex: 1;
+}

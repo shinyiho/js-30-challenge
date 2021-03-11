@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sort Without Articles</title>
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("https://images.unsplash.com/photo-1583124252729-f18f16c9a889?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      min-height: 80vh;
+    }
+
+    #bands {
+		
+      font-size: 10px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    
+     #bands li {
+	  list-style: inside square;
+      border-bottom: 1px solid #efefef;
+      padding: 10px;
+    }
+    
+    #bands li:last-child {
+      border-bottom: 0;
+    }
+
+  </style>
+
+  <ul id="bands"></ul>
+
+<script>
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+let arr=bands.sort((a,b)=>r(a)>r(b)? 1:-1);
+list=document.getElementById("bands");
+list.innerHTML=arr.map(i=>`<li>${i}</li>`).join("");
+
+
+
+function r(item){
+	return item.replace(/^(the |a |an )/i,"").trim();
+}
+// let test= bands.map(item=>{
+// 	console.log(r(item));
+// 	})
+	
+</script>
+
+</body>
+</html>
