@@ -16,4 +16,4 @@
 [Landing page](https://shinyiho.github.io/js-30-challenge/DAY26/) \
 [Click and Drag](https://shinyiho.github.io/js-30-challenge/DAY27/)\
 [Timer](https://shinyiho.github.io/js-30-challenge/DAY29/) \
-[Wack a mole](https://shinyiho.github.io/js-30-challenge/DAY30/)\
+[Wack a mole](https://shinyiho.github.io/js-30-challenge/DAY30/)
